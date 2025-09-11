@@ -1,0 +1,28 @@
+// create a branch
+
+1. use command
+git branch branch_name
+
+
+// create a files in branch
+ 
+steps:
+1.create a file(.txt,.c etc)
+2.Add to using 
+   git add . 
+  or
+   git add -A
+  or 
+    git add -u
+
+(git add .)--Stages new and modified files in the current directory and below
+(git add -A) -- Stages all changes (new, modified, and deleted) in the entire repo
+(git add -u) ----- Stages modified and deleted files only (no new files)
+
+3.commit the changes using
+git commit -m "any message ot commit"
+4.push the file into main like
+git push origin branch_name
+ex:
+git push origin main
+
