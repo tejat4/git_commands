@@ -1,10 +1,10 @@
-// create a branch
+// create a branch and add in github
 
 1. use command
 git branch branch_name
 
 
-// create a files in branch
+// create a files in branch and add in github
  
 steps:
 1.create a file(.txt,.c etc)
@@ -25,4 +25,14 @@ git commit -m "any message ot commit"
 git push origin branch_name
 ex:
 git push origin main
+
+// we can add mutiple files
+1. creates files
+ teja.txt branch.txt 
+2.add the files
+  git add file1.txt file2.txt
+3.commit
+  git commit -m "<mesg>"
+4.push the files to main
+   git push origin main
 

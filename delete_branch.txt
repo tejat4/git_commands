@@ -1,0 +1,34 @@
+---Delete a Branch Locally
+
+git branch -d branch_name
+
+This deletes the branch only if it’s fully merged to avoid losing work.
+
+---If the branch is not merged and you want to force delete it:
+
+git branch -D branch_name
+
+--- Delete a Branch Remotely (on GitHub)
+git push origin --delete branch_name
+
+
+or
+
+git push origin :branch_name
+
+📝 Examples
+
+Delete local branch feature
+git branch -d feature
+
+Force delete local branch feature
+git branch -D feature
+
+Delete remote branch feature
+git push origin --delete feature
+
+
+Important: You cannot delete the branch you are currently on. Switch to another branch (like main) first:
+
+git checkout main
+
