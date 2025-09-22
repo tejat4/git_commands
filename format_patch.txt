@@ -1,0 +1,146 @@
+What is git format-patch?
+
+git format-patch is a Git command used to generate patch files from commits.
+
+A patch file is a text file that contains:
+
+Metadata (commit hash, author, date, subject).
+
+The diff (changes introduced by that commit).
+
+These patch files can later be applied using git apply or git am.
+
+👉 This is very useful for email-based workflows, code reviews, or sharing changes without pushing to a remote.
+
+🔹 Basic syntax
+git format-patch <options> <commit-range>
+
+🔹 Common usages
+1. Generate patch for the latest commit
+git format-patch -1 HEAD
+
+
+-1 → one commit.
+
+Creates a file like:
+
+0001-Commit-message-title.patch
+
+2. Generate patches for last N commits
+git format-patch -3
+
+
+Generates 3 patch files for the last 3 commits:
+
+0001-First-commit.patch
+0002-Second-commit.patch
+0003-Third-commit.patch
+
+3. Generate patches between branches (commit range)
+git format-patch origin/main..main
+
+
+Creates patch files for all commits that are in your local main but not in origin/main.
+
+Another form:
+
+git format-patch <start_commit>..<end_commit>
+
+
+Example:
+
+git format-patch abc123..def456
+
+
+Creates patches for commits between abc123 and def456.
+
+4. Generate patches with custom output directory
+git format-patch -2 -o patches/
+
+
+-2 → last 2 commits.
+
+-o patches/ → saves patch files inside patches/ directory.
+
+5. Include cover letter (when multiple patches)
+git format-patch -3 --cover-letter
+
+
+Adds a 0000-cover-letter.patch file.
+
+This is useful for explaining the patch series when sending via email.
+
+🔹 Applying patches
+
+Using git apply (applies changes only, no commit metadata):
+
+git apply 0001-some-change.patch
+
+
+Using git am (applies and preserves commit metadata: author, message, date):
+
+git am 0001-some-change.patch
+
+
+Apply all patches in a directory:
+
+git am patches/*.patch
+
+🔹 Real Example
+
+Let’s say you made 2 commits locally:
+
+$ git log --oneline
+abc123 Added README
+def456 Fixed typo
+
+
+Now you run:
+
+git format-patch -2
+
+
+Result:
+
+0001-Added-README.patch
+0002-Fixed-typo.patch
+
+
+Contents of 0001-Added-README.patch (shortened):
+
+From abc123 Mon Sep 22 09:30:00 2025 +0530
+From: Naga Teja <teja@example.com>
+Date: Mon, 22 Sep 2025 09:30:00 +0530
+Subject: [PATCH] Added README
+
+---
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..c1a1b1f
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1 @@
++This is my project
+
+
+This patch can now be sent, reviewed, or applied elsewhere.
+
+🔹 Summary
+
+git format-patch = convert commits into patch files.
+
+Typical usage:
+
+git format-patch -1 HEAD → latest commit patch.
+
+git format-patch -3 → last 3 commits.
+
+git format-patch origin/main..main → commits not in remote.
+
+git am <patch> → apply patch with commit metadata.
+
+git apply <patch> → apply changes only (no metadata).
