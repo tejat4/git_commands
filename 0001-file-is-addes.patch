@@ -1,0 +1,220 @@
+From 33197026c18b9c37b0c5ee63f81c786ea9e83789 Mon Sep 17 00:00:00 2001
+From: teja <tejamudiyalaa9@gmail.com>
+Date: Mon, 22 Sep 2025 04:48:55 +0000
+Subject: [PATCH] file is addes
+
+
+diff --git a/git_show_status.txt b/git_show_status.txt
+new file mode 100644
+index 0000000..715b1d7
+--- /dev/null
++++ b/git_show_status.txt
+@@ -0,0 +1,205 @@
++1. git status
++1. git status
++
++👉 Purpose:
++
++Shows the current state of your working directory and staging area.
++
++Tells you:
++
++Which files are modified but not staged.
++
++Which files are staged (ready to be committed).
++
++Which files are untracked (new, not yet added to Git).
++
++Which branch you’re on and whether it’s up to date with remote.
++
++Example:
++# Check repo status
++git status
++
++
++Output might look like:
++
++On branch main
++Your branch is up to date with 'origin/main'.
++
++Changes not staged for commit:
++  (use "git add <file>..." to update what will be committed)
++        modified:   hello.c
++
++Untracked files:
++  (use "git add <file>..." to include in what will be committed)
++        newfile.txt
++
++
++Interpretation:
++
++You’re on branch main.
++
++hello.c is modified but not staged.
++
++newfile.txt is new and not tracked by Git.
++
++Nothing has been committed yet, so these changes won’t be in history until you add & commit.
++
++So: git status = What’s happening right now in your working directory and staging area.
++
++2. git show
++
++👉 Purpose:
++
++Shows the details of a specific commit (by default the latest commit, HEAD).
++
++Displays:
++
++Commit hash, author, date, commit message.
++
++The patch (diff) of what changed in that commit.
++
++Example:
++# Show details of latest commit
++git show
++
++
++Output might look like:
++
++commit a1b2c3d4e5f6g7h8i9j0 (HEAD -> main)
++Author: Naga Teja <naga@example.com>
++Date:   Mon Sep 22 09:15:00 2025 +0530
++
++    Added print statement in hello.c
++
++diff --git a/hello.c b/hello.c
++index e69de29..0c4b52f 100644
++--- a/hello.c
+++++ b/hello.c
++@@ -0,0 +1,2 @@
+++#include <stdio.h>
+++printf("Hello World\n");
++
++
++Interpretation:
++
++Commit hash is a1b2c3….
++
++Commit message: Added print statement in hello.c.
++
++It shows a diff: hello.c was modified by adding #include <stdio.h> and a printf.
++
++You can also use:
++
++git show <commit_hash>
++
++
++to view any commit, not just the latest.
++
++So: git show = What happened in a specific commit (history details).
++
++3. Clear Comparison
++
++git status = tells you the current situation (before committing).
++
++git show = tells you the history of a commit (after committing).
++👉 Purpose:
++
++Shows the current state of your working directory and staging area.
++
++Tells you:
++
++Which files are modified but not staged.
++
++Which files are staged (ready to be committed).
++
++Which files are untracked (new, not yet added to Git).
++
++Which branch you’re on and whether it’s up to date with remote.
++
++Example:
++# Check repo status
++git status
++
++
++Output might look like:
++
++On branch main
++Your branch is up to date with 'origin/main'.
++
++Changes not staged for commit:
++  (use "git add <file>..." to update what will be committed)
++        modified:   hello.c
++
++Untracked files:
++  (use "git add <file>..." to include in what will be committed)
++        newfile.txt
++
++
++Interpretation:
++
++You’re on branch main.
++
++hello.c is modified but not staged.
++
++newfile.txt is new and not tracked by Git.
++
++Nothing has been committed yet, so these changes won’t be in history until you add & commit.
++
++So: git status = What’s happening right now in your working directory and staging area.
++
++2. git show
++
++👉 Purpose:
++
++Shows the details of a specific commit (by default the latest commit, HEAD).
++
++Displays:
++
++Commit hash, author, date, commit message.
++
++The patch (diff) of what changed in that commit.
++
++Example:
++# Show details of latest commit
++git show
++
++
++Output might look like:
++
++commit a1b2c3d4e5f6g7h8i9j0 (HEAD -> main)
++Author: Naga Teja <naga@example.com>
++Date:   Mon Sep 22 09:15:00 2025 +0530
++
++    Added print statement in hello.c
++
++diff --git a/hello.c b/hello.c
++index e69de29..0c4b52f 100644
++--- a/hello.c
+++++ b/hello.c
++@@ -0,0 +1,2 @@
+++#include <stdio.h>
+++printf("Hello World\n");
++
++
++Interpretation:
++
++Commit hash is a1b2c3….
++
++Commit message: Added print statement in hello.c.
++
++It shows a diff: hello.c was modified by adding #include <stdio.h> and a printf.
++
++You can also use:
++
++git show <commit_hash>
++
++
++to view any commit, not just the latest.
++
++So: git show = What happened in a specific commit (history details).
++
++3. Clear Comparison
++
++git status = tells you the current situation (before committing).
++
++git show = tells you the history of a commit (after committing).
+-- 
+2.43.0
+
