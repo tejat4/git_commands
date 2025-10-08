@@ -6,7 +6,6 @@ This removes the file and stages the deletion:
 
 git rm <filename>
 
-
 Example:
 
 git rm delete_file.txt
